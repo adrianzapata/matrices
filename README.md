@@ -1,5 +1,13 @@
 # Matrices Coding Challenge — Interseguro
 
+**Desplegado en:** https://go-api-7q4y.onrender.com (usuario `admin`, ver
+credenciales entregadas por correo). API de estadísticas (uso interno de
+`go-api`): https://node-api-srj3.onrender.com
+
+> Nota: ambos servicios están en el plan gratuito de Render, que apaga la
+> instancia tras ~15 min de inactividad. La primera petición después de eso
+> puede tardar ~50s en responder mientras arranca de nuevo.
+
 Dos APIs REST que se comunican por HTTP:
 
 1. **`go-api`** (Go + Fiber): recibe una matriz, la rota 90° y calcula su
