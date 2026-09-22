@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matrices Coding Challenge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Matrices Coding Challenge</h1>
+    <p>Rotación + Factorización QR (API Go) &rarr; Estadísticas (API Node.js)</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>1. Configuración</h2>
+      <label>
+        Go API URL
+        <input id="goApiUrl" type="text" value="http://localhost:8080" />
+      </label>
+      <div class="row">
+        <label>
+          Usuario
+          <input id="username" type="text" value="admin" />
+        </label>
+        <label>
+          Contraseña
+          <input id="password" type="password" value="admin" />
+        </label>
+        <button id="loginBtn" type="button">Obtener token</button>
+      </div>
+      <p id="tokenStatus" class="status"></p>
+    </section>
+
+    <section class="panel">
+      <h2>2. Matriz de entrada</h2>
+      <textarea id="matrixInput" rows="6">[[12, -51, 4], [6, 167, -68], [-4, 24, -41]]</textarea>
+      <button id="processBtn" type="button">Procesar matriz</button>
+      <p id="processStatus" class="status"></p>
+    </section>
+
+    <section class="panel results" id="results" hidden>
+      <h2>3. Resultados</h2>
+
+      <div class="grid">
+        <div>
+          <h3>Original</h3>
+          <pre id="originalOut"></pre>
+        </div>
+        <div>
+          <h3>Rotada 90&deg; (Go)</h3>
+          <pre id="rotatedOut"></pre>
+        </div>
+        <div>
+          <h3>Q (Go)</h3>
+          <pre id="qOut"></pre>
+        </div>
+        <div>
+          <h3>R (Go)</h3>
+          <pre id="rOut"></pre>
+        </div>
+      </div>
+
+      <h3>Estadísticas (Node.js)</h3>
+      <table id="statsTable">
+        <tbody>
+          <tr><th>Máximo</th><td id="statMax"></td></tr>
+          <tr><th>Mínimo</th><td id="statMin"></td></tr>
+          <tr><th>Promedio</th><td id="statAvg"></td></tr>
+          <tr><th>Suma total</th><td id="statSum"></td></tr>
+          <tr><th>¿Diagonal? (rotated / q / r)</th><td id="statDiag"></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

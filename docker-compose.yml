@@ -1,0 +1,36 @@
+services:
+  node-api:
+    build: ./node-api
+    environment:
+      PORT: "4000"
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-change-me}
+      CORS_ORIGINS: ${CORS_ORIGINS:-*}
+    ports:
+      - "4000:4000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:4000/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  go-api:
+    build: ./go-api
+    environment:
+      PORT: "8080"
+      NODE_API_URL: "http://node-api:4000"
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-change-me}
+      AUTH_USERNAME: ${AUTH_USERNAME:-admin}
+      AUTH_PASSWORD: ${AUTH_PASSWORD:-admin}
+      CORS_ORIGINS: ${CORS_ORIGINS:-*}
+    ports:
+      - "8080:8080"
+    depends_on:
+      node-api:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8081:80"
+    depends_on:
+      - go-api

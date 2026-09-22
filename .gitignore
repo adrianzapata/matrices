@@ -1,0 +1,13 @@
+# Go
+go-api/matrices-go-api
+go-api/*.exe
+
+# Node
+node-api/node_modules/
+
+# Env
+.env
+
+# OS
+.DS_Store
+Thumbs.db

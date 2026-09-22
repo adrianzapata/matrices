@@ -1,0 +1,124 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f5f7fa;
+  --panel: #ffffff;
+  --border: #d8dee6;
+  --text: #1c2530;
+  --muted: #5b6572;
+  --accent: #0071ce;
+  --accent-dark: #00539b;
+  --error: #c0392b;
+  --ok: #1e8e3e;
+  font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #10151c;
+    --panel: #1a212b;
+    --border: #2c3644;
+    --text: #e7ecf2;
+    --muted: #9aa7b5;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  padding: 0 1.5rem 3rem;
+}
+
+header {
+  padding: 2rem 0 1rem;
+}
+
+header h1 { margin: 0 0 0.25rem; }
+header p { margin: 0; color: var(--muted); }
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+}
+
+.panel h2 { margin-top: 0; }
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  flex: 1;
+}
+
+input, textarea {
+  font: inherit;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+textarea {
+  width: 100%;
+  font-family: ui-monospace, Consolas, monospace;
+  resize: vertical;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+button {
+  font: inherit;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  height: fit-content;
+}
+
+button:hover { background: var(--accent-dark); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.status { min-height: 1.2em; font-size: 0.9rem; }
+.status.error { color: var(--error); }
+.status.ok { color: var(--ok); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+pre {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.6rem;
+  overflow-x: auto;
+  font-size: 0.8rem;
+}
+
+table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+th, td { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border); }
+th { color: var(--muted); font-weight: 500; width: 40%; }

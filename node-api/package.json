@@ -1,0 +1,20 @@
+{
+  "name": "matrices-node-api",
+  "version": "1.0.0",
+  "description": "Node.js/Express API that computes statistics over matrices received from the Go API.",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
